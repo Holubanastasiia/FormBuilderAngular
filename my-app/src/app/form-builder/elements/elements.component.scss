@@ -1,0 +1,25 @@
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.dragDropGroup {
+  display: flex;
+}
+
+.form-element {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  background-color: rgb(65, 64, 64);
+}
+
+input,
+textarea,
+button,
+input {
+  margin-bottom: 20px;
+}

@@ -28,3 +28,59 @@ a {
 ul {
   list-style: none;
 }
+
+
+
+button {
+  padding: 10px;
+  width: 100px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 18px;
+
+  &:disabled {
+    cursor: not-allowed;
+    background: gray;
+    color: #111;
+  }
+}
+
+.submit {
+  background-color: rgb(228, 66, 166);
+
+  &:hover {
+    opacity: 60%;
+    transition: 0.3s ease;
+  }
+}
+
+label {
+  font-size: 20px;
+  color: gray;
+}
+
+.form {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.form-control {
+  display: block;
+  color: #888;
+  margin-bottom: .8rem;
+}
+
+.validation {
+  color: #dc3545;
+}
+
+.alert {
+  padding: 0.7rem;
+  margin: 1rem 0;
+  opacity: 0.9;
+  background: #f4f4f4;
+  color: #333;
+}
