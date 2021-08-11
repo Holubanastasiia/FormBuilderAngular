@@ -1,0 +1,36 @@
+<div>
+    <div class="container">
+
+        <form class="form" [formGroup]='form' (ngSubmit)="loginUser()">
+            <div class="alert alert-info" *ngIf="message">
+                {{ message }}
+            </div>
+
+            <div class="form-control" [ngClass]="{invalid: f.name.touched && f.name.invalid}">
+                <label for="name">User Name:</label>
+                <input id="name" type="email" formControlName="name">
+                <div class="validation" *ngIf="f.name.touched && f.name.invalid">
+                    <small *ngIf="f.name.errors!.required">Enter User Name</small>
+                </div>
+            </div>
+
+            <div class="form-control">
+                <label for="password">Password:</label>
+                <input id="password" type="password" formControlName="password">
+                <div class="validation" *ngIf="f.password.touched && f.password.invalid">
+                    <small *ngIf="f.password.errors!.required">Enter password</small>
+                    <small *ngIf="f.password.errors!.minlength">Password may have
+                        {{f.password.errors!.minlength.requiredLength}}
+                        characters,
+                        now {{f.password.errors!.minlength.actualLength}} characters</small>
+                </div>
+            </div>
+
+            <button type="submit" class="submit" [disabled]="form.invalid">
+                Login
+            </button>
+
+        </form>
+    </div>
+
+</div>
