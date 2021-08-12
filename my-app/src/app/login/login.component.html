@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <form class="form" [formGroup]='form' (ngSubmit)="submit()">
 
         <div class="alert alert-info" *ngIf="message">
@@ -31,4 +31,14 @@
         </button>
 
     </form>
+</div> -->
+
+<div class="container">
+    <div class="header">
+        <a class="header__link" [routerLink]="['signin']" routerLinkActive='active'>Sign in</a>
+        <a class="header__link" [routerLink]="['signup']" routerLinkActive='active'>Sign up</a>
+    </div>
 </div>
+
+
+<router-outlet></router-outlet>

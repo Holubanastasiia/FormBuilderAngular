@@ -1,15 +1,22 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { FormBuilderComponent } from './form-builder/form-builder.component';
-import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'form-builder', component: FormBuilderComponent },
-  { path: 'login', component: LoginComponent },
+  {
+    path: '',
+    loadChildren: () =>
+      import('./login/login.routing.module').then((m) => m.LoginRoutingModel),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      preloadingStrategy: PreloadAllModules,
+    }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

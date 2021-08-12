@@ -1,22 +1,51 @@
 <div class="container">
+    <!-- <form class="form" (ngSubmit)="submit()" [formGroup]="form">
 
-    <form class="form" [formGroup]='form' (ngSubmit)="registerUser()">
-        <!-- <div class="alert alert-info" *ngIf="message">
-            {{ message }}
-        </div> -->
-
-        <div class="form-control" [ngClass]="{invalid: f.name.touched && f.name.invalid}">
-            <label for="name">User Name:</label>
-            <input id="name" type="email" formControlName="name">
-            <div class="validation" *ngIf="f.name.touched && f.name.invalid">
-                <small *ngIf="f.name.errors!.required">Enter User Name</small>
+         [ngClass]="{invalid: f.email.touched && f.email.invalid}" 
+        <div class="form-control">
+            <label for="email">Email:</label>
+            <input id="email" type="email" formControlName="email" *ngIf="f.email.touched && f.email.invalid">
+            <div class="validation">
+                <small *ngIf="f.email.errors!.required">Enter email</small>
+                <small *ngIf="f.email.errors!.email">Email is invalid</small>
             </div>
         </div>
 
-        <div class="form-control" [ngClass]="{invalid: f.email.touched && f.email.invalid}">
+        <div class="form-control" *ngIf="f.password.touched && f.password.invalid">
+            <label for="password">Password:</label>
+            <input id="password" type="password" formControlName="password">
+            <div class="validation">
+                <small *ngIf="f.password.errors!.required">Enter password</small>
+                <small *ngIf="f.password.errors!.minlength">
+                    Password may have
+                    {{f.password.errors!.minlength.requiredLength}}
+                    characters,
+                    now {{f.password.errors!.minlength.actualLength}} characters
+                </small>
+
+            </div>
+        </div>
+
+        <button type="submit" class="submit" [disabled]="form.invalid">
+            Login
+        </button>
+
+    </form> -->
+    <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-control">
+            <label for="name">User Name:</label>
+            <input id="name" type="text" formControlName="name">
+            <!-- <div class="validation">
+                        <small *ngIf="f.email.errors!.required">Enter email</small>
+                        <small *ngIf="f.email.errors!.email">Email is invalid</small>
+                    </div> -->
+        </div>
+
+        <div class="form-control">
             <label for="email">Email:</label>
             <input id="email" type="email" formControlName="email">
-            <div class="validation" *ngIf="f.email.touched && f.email.invalid">
+            <div class="validation">
                 <small *ngIf="f.email.errors!.required">Enter email</small>
                 <small *ngIf="f.email.errors!.email">Email is invalid</small>
             </div>
@@ -25,16 +54,13 @@
         <div class="form-control">
             <label for="password">Password:</label>
             <input id="password" type="password" formControlName="password">
-            <div class="validation" *ngIf="f.password.touched && f.password.invalid">
-                <small *ngIf="f.password.errors!.required">Enter password</small>
-                <small *ngIf="f.password.errors!.minlength">Password may have
-                    {{f.password.errors!.minlength.requiredLength}}
-                    characters,
-                    now {{f.password.errors!.minlength.actualLength}} characters</small>
+            <div class="validation">
+                <small *ngIf="f.email.errors!.required">Enter email</small>
+                <small *ngIf="f.email.errors!.email">Email is invalid</small>
             </div>
         </div>
 
-        <button type="submit" class="submit" [disabled]="form.invalid">
+        <button type="submit" class="submit">
             Login
         </button>
 
