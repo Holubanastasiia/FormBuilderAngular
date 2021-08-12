@@ -2,30 +2,30 @@
 
     <form class="form" [formGroup]="form" (ngSubmit)="submit()">
 
-        <div class="form-control">
+        <div class="form-control" [ngClass]="{invalid: f.name.touched && f.name.invalid}">
             <label for="name">User Name:</label>
             <input id="name" type="text" formControlName="name">
-            <div class="validation">
-                <small *ngIf="f.email.errors!.required">Enter email</small>
-                <small *ngIf="f.email.errors!.email">Email is invalid</small>
+            <div class="validation" *ngIf="f.name.touched && f.name.invalid">
+                <small *ngIf="f.name.errors!.required">Enter email</small>
+                <small *ngIf="f.name.errors!.email">Email is invalid</small>
             </div>
         </div>
 
-        <div class="form-control">
+        <div class="form-control" [ngClass]="{invalid: f.email.touched && f.email.invalid}">
             <label for="email">Email:</label>
             <input id="email" type="email" formControlName="email">
-            <div class="validation">
+            <div class="validation" *ngIf="f.email.touched && f.email.invalid">
                 <small *ngIf="f.email.errors!.required">Enter email</small>
                 <small *ngIf="f.email.errors!.email">Email is invalid</small>
             </div>
         </div>
 
-        <div class="form-control">
+        <div class="form-control" [ngClass]="{invalid: f.password.touched && f.password.invalid}">
             <label for="password">Password:</label>
             <input id="password" type="password" formControlName="password">
-            <div class="validation">
-                <small *ngIf="f.email.errors!.required">Enter email</small>
-                <small *ngIf="f.email.errors!.email">Email is invalid</small>
+            <div class="validation" *ngIf="f.password.touched && f.password.invalid">
+                <small *ngIf="f.password.errors!.required">Enter email</small>
+                <small *ngIf="f.password.errors!.email">Email is invalid</small>
             </div>
         </div>
 
