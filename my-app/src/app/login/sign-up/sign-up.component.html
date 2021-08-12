@@ -6,8 +6,7 @@
             <label for="name">User Name:</label>
             <input id="name" type="text" formControlName="name">
             <div class="validation" *ngIf="f.name.touched && f.name.invalid">
-                <small *ngIf="f.name.errors!.required">Enter email</small>
-                <small *ngIf="f.name.errors!.email">Email is invalid</small>
+                <small *ngIf="f.name.errors!.required">Enter user name</small>
             </div>
         </div>
 

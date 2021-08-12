@@ -1,12 +1,6 @@
-import {
-  HttpClient,
-  HttpErrorResponse,
-  HttpHeaders,
-} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import { User } from './interfaces';
 
 @Injectable({
@@ -15,26 +9,12 @@ import { User } from './interfaces';
 export class AuthService {
   constructor(private http: HttpClient) {}
 
-  signUp() {}
-
   // Sign-in
-  signIn() {}
-
-  getToken() {
-    return localStorage.getItem('access_token');
+  signIn(authenticate: User): Observable<any> {
+    return this.http.post('http://localhost:3000/login', authenticate);
   }
 
-  get isLoggedIn(): boolean {
-    let authToken = localStorage.getItem('access_token');
-    return authToken !== null ? true : false;
-  }
-
-  doLogout() {}
-
-  // User profile
-  getUserProfile() {}
-
-  handleError() {
-    let msg = '';
+  signUp(authenticate: User): Observable<any> {
+    return this.http.post('http://localhost:3000/users', authenticate);
   }
 }
