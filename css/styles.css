@@ -1,9 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
+@import url("https://fonts.googleapis.com/css?family=Roboto");
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
@@ -29,8 +28,6 @@ ul {
   list-style: none;
 }
 
-
-
 button {
   padding: 10px;
   width: 100px;
@@ -40,22 +37,23 @@ button {
   border: none;
   outline: none;
   font-size: 18px;
+}
 
-  &:disabled {
-    cursor: not-allowed;
-    background: gray;
-    color: #111;
-  }
+button:disabled {
+  cursor: not-allowed;
+  background: gray;
+  color: #111;
 }
 
 .submit {
   background-color: #3f51b5;
   margin-right: 15px;
+}
 
-  &:hover {
-    opacity: 60%;
-    transition: 0.3s ease;
-  }
+.submit:hover {
+  opacity: 60%;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 
 label {
@@ -72,10 +70,10 @@ label {
   display: block;
   color: #888;
   margin-bottom: .8rem;
+}
 
-  &.invalid {
-    color: red;
-  }
+.form-control.invalid {
+  color: red;
 }
 
 .validation {
@@ -89,3 +87,4 @@ label {
   background: #f4f4f4;
   color: #333;
 }
+/*# sourceMappingURL=styles.css.map */

@@ -1,9 +1,6 @@
 <div class="container">
 
-    <a href="#" class="header__link" *ngIf="authService.isAuth()" (click)="logout($event)">Logout</a>
-
     <div class="authError" *ngIf="authService.error$ | async as error">{{ error }}</div>
-
 
     <form class="form" [formGroup]="form" (ngSubmit)="login()">
 
@@ -28,9 +25,13 @@
             </div>
         </div>
 
-        <button type="submit" class="submit">
-            Login
-        </button>
+        <div class="buttons">
+            <button type="submit" class="submit">
+                Login
+            </button>
+            <button type="button" class="submit" *ngIf="!(authState | async)" (click)="logout($event)">Logout</button>
+            <!-- <button type="button" class="submit" *ngIf="!(authState | async)" (click)="logout($event)">Logout</button> -->
+        </div>
 
     </form>
 </div>

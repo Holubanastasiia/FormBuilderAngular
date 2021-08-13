@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, Subject, throwError } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, throwError } from 'rxjs';
 import { User } from './interfaces';
 import { catchError, tap } from 'rxjs/operators';
 
@@ -9,7 +9,7 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class AuthService {
   public error$: Subject<string> = new Subject<string>();
-
+  public authState$ = new BehaviorSubject(false);
   constructor(private http: HttpClient) {}
 
   get token() {
@@ -30,11 +30,11 @@ export class AuthService {
   }
 
   logout() {
+    this.authState$.next(true);
     this.setToken(null);
   }
 
   isAuth(): boolean {
-    // return !!this.token;
     return this.token !== null ? true : false;
   }
 

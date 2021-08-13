@@ -16,6 +16,7 @@ import { User } from '../shared/interfaces';
 export class SignInComponent implements OnInit {
   public error$: Subject<string> = new Subject<string>();
   form!: FormGroup;
+  public authState = this.authService.authState$;
 
   constructor(public authService: AuthService, private router: Router) {}
 
@@ -36,6 +37,7 @@ export class SignInComponent implements OnInit {
 
   login() {
     this.authService.signIn(this.form.value).subscribe(() => {
+      this.authService.authState$.next(false);
       this.form.reset();
       this.router.navigate(['login']);
     });

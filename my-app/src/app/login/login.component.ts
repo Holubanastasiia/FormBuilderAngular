@@ -9,17 +9,18 @@ import { AuthService } from './shared/auth.service';
 })
 export class LoginComponent implements OnInit {
   message!: string;
+  public authState = this.authService.authState$;
   constructor(public authService: AuthService, private route: Router) {}
 
   ngOnInit(): void {}
 
-  isAuth() {
-    this.authService.isAuth();
-  }
+  // isAuth() {
+  //   this.authService.isAuth();
+  // }
 
-  logout(event: Event) {
-    event.preventDefault();
-    this.authService.logout();
-    this.route.navigate(['login', 'signin']);
-  }
+  // logout(event: Event) {
+  //   event.preventDefault();
+  //   this.authService.logout();
+  //   this.route.navigate(['login', 'signin']);
+  // }
 }

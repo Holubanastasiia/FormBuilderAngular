@@ -23,5 +23,8 @@ textarea {
 }
 
 .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+/*# sourceMappingURL=sign-in.component.css.map */
