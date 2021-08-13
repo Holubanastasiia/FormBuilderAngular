@@ -1,12 +1,8 @@
-import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
-import { Observable, Subject } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 import { AuthService } from '../shared/auth.service';
-import { User } from '../shared/interfaces';
 
 @Component({
   selector: 'app-sign-in',

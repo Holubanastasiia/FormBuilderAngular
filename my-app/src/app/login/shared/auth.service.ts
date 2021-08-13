@@ -10,6 +10,7 @@ import { catchError, tap } from 'rxjs/operators';
 export class AuthService {
   public error$: Subject<string> = new Subject<string>();
   public authState$ = new BehaviorSubject(false);
+
   constructor(private http: HttpClient) {}
 
   get token() {
@@ -18,16 +19,15 @@ export class AuthService {
 
   // Sign-in
   signIn(authenticate: User): Observable<User> {
-    console.log(authenticate);
-
     return this.http
       .post<User>('http://localhost:3000/login', authenticate)
       .pipe(tap(this.setToken), catchError(this.handleError.bind(this)));
   }
 
-  signUp(authenticate: User): Observable<User> {
-    return this.http.post<User>('http://localhost:3000/users', authenticate);
-  }
+  //for future
+  // signUp(authenticate: User): Observable<User> {
+  //   return this.http.post<User>('http://localhost:3000/users', authenticate);
+  // }
 
   logout() {
     this.authState$.next(true);
@@ -47,10 +47,7 @@ export class AuthService {
 
   private setToken(response: any) {
     if (response) {
-      console.log('response', response);
-
       localStorage.setItem('user', JSON.stringify(response));
-      console.log(localStorage.getItem('user'));
     } else {
       localStorage.clear();
     }
