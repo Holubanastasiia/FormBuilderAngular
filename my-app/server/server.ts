@@ -4,18 +4,25 @@ const router = jsonServer.router('server/db.json');
 const middlewares = jsonServer.defaults();
 const db = require('./db.json');
 const fs = require('fs');
+const jwt = require('jsonwebtoken');
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 server.post('/login', (req: any, res: any, next: any) => {
+  console.log('route login', req.body);
+
   const users = readUsers();
   const user = users.filter(
     (u: any) => u.name === req.body.name && u.password === req.body.password
   )[0];
 
   if (user) {
-    res.send({ ...formatUser(user), token: checkIfAdmin(user) });
+    const accessToken = jwt.sign({ id: user.id }, 'some-secret-key', {
+      expiresIn: 60 * 60 * 24 * 30, // 30 day
+    });
+
+    res.send({ ...formatUser(user), token: accessToken });
   } else {
     res.status(401).send('Incorrect username or password');
   }

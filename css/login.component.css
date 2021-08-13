@@ -24,33 +24,38 @@ ul {
   height: 50px;
   font-size: 20px;
   font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   margin-top: 20px;
+}
 
-  &__link {
-    padding: 10px;
-    width: 100px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    border: none;
-    outline: none;
-    font-size: 18px;
-    background-color: #3f51b5;
-    margin-right: 20px;
-    text-align: center;
-    border-radius: 3px;
+.header__link {
+  padding: 10px;
+  width: 100px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  background-color: #3f51b5;
+  margin-right: 20px;
+  text-align: center;
+  border-radius: 3px;
+}
 
-    &.active {
-      opacity: 75%;
-    }
+.header__link.active {
+  opacity: 75%;
+}
 
-    &:hover {
-      opacity: 60%;
-      transition: 0.3s ease;
-    }
-  }
+.header__link:hover {
+  opacity: 60%;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
 }
 
 .authError {
@@ -63,3 +68,4 @@ ul {
   margin-bottom: -35px;
   margin-top: 30px;
 }
+/*# sourceMappingURL=login.component.css.map */

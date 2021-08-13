@@ -1,3 +1,13 @@
+.form-control {
+  display: block;
+  color: #888;
+  margin-bottom: .8rem;
+}
+
+.form-control.invalid {
+  color: red;
+}
+
 input[type='text'],
 input[type='email'],
 input[type='password'],
@@ -10,14 +20,4 @@ textarea {
   font-size: 1.2rem;
   border: 1px solid #ccc;
 }
-
-.authError {
-  background-color: rgba(229, 226, 226, 0.829);
-  text-align: center;
-  color: #3f51b5;
-  font-weight: bold;
-  height: 35px;
-  width: 100%;
-  margin-bottom: -35px;
-  margin-top: 30px;
-}
+/*# sourceMappingURL=sign-up.component.css.map */

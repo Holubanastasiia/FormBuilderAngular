@@ -23,8 +23,12 @@
             <label for="password">Password:</label>
             <input id="password" type="password" formControlName="password">
             <div class="validation" *ngIf="f.password.touched && f.password.invalid">
-                <small *ngIf="f.password.errors!.required">Enter email</small>
-                <small *ngIf="f.password.errors!.email">Email is invalid</small>
+                <small *ngIf="f.password.errors!.required">Enter password</small>
+                <small *ngIf="f.password.errors!.minlength">Password may have
+                    {{f.password.errors!.minlength.requiredLength}}
+                    characters
+                    now {{f.password.errors!.minlength.actualLength}} characters
+                </small>
             </div>
         </div>
 

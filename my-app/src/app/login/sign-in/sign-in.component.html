@@ -1,4 +1,10 @@
 <div class="container">
+
+    <a href="#" class="header__link" *ngIf="authService.isAuth()" (click)="logout($event)">Logout</a>
+
+    <div class="authError" *ngIf="authService.error$ | async as error">{{ error }}</div>
+
+
     <form class="form" [formGroup]="form" (ngSubmit)="login()">
 
         <div class="form-control" [ngClass]="{invalid: f.name.touched && f.name.invalid}">
@@ -13,8 +19,12 @@
             <label for=" password">Password:</label>
             <input id="password" type="password" formControlName="password">
             <div class="validation" *ngIf="f.password.touched && f.password.invalid">
-                <small *ngIf="f.email.errors!.required">Enter email</small>
-                <small *ngIf="f.email.errors!.email">Email is invalid</small>
+                <small *ngIf="f.password.errors!.required">Enter password</small>
+                <small *ngIf="f.password.errors!.minlength">Password may have
+                    {{f.password.errors!.minlength.requiredLength}}
+                    characters
+                    now {{f.password.errors!.minlength.actualLength}} characters
+                </small>
             </div>
         </div>
 

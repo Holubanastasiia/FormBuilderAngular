@@ -4,3 +4,8 @@ export interface User {
   id: any;
   password: string;
 }
+
+export interface DbAuthResponse {
+  idToken: string;
+  expiresIn: string;
+}
